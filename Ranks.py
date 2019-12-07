@@ -35,7 +35,7 @@ while 1:
     y = ifile.readline().split()
     if not y:
         break
-    dct[y[1]] = y[-1]
+    dct[y[1]] = y[-1] #y[1] is Roll number while y[-1] is the Grade
     cnt+=1
 ifile.close()
 sheet1 = wb.add_sheet("Rankings")
