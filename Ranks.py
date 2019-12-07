@@ -11,7 +11,7 @@ def k(dct): #Returns name with maximum GP
     for i in dct.keys():
         if dct[i] == m:
             return i
-nfile = open("Names_A-G.txt","r")
+nfile = open("Names_A-G.txt","r") #Change filename here for names.
 names = {}
 mx = 0
 while 1:
@@ -27,7 +27,7 @@ while 1:
     if len(nm)>mx:
         mx = len(nm)
 
-ifile = open("Grades_A-G.txt",'r') #Change filename here.
+ifile = open("Grades_A-G.txt",'r') #Change filename here for grades.
 dct = {}
 dct_dept = {"BT":"Biotech","CH":"Chemical","EP":"E.Physics","CE":"Civil","CS":"Comp.Sc.","EE":"EEE","EC":"ECE","ME":"Mech","PE":"Production"}
 cnt = 0
@@ -35,7 +35,7 @@ while 1:
     y = ifile.readline().split()
     if not y:
         break
-    dct[y[1]] = y[16]
+    dct[y[1]] = y[-1]
     cnt+=1
 ifile.close()
 sheet1 = wb.add_sheet("Rankings")
@@ -56,5 +56,5 @@ for i in range(1,cnt+1):
     sheet1.write(i,3,dct_dept[k(dct)[7:]])
     sheet1.write(i,4,str(dct[k(dct)]))
     del dct[k(dct)] #Deletes the top most name
-wb.save('Rankings A-G.xls')
+wb.save('Rankings A-G.xls') #Output file name
 
